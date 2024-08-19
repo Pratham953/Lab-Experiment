@@ -1,0 +1,105 @@
+import java.util.*;
+public abstract class Shape
+{
+    double length;
+    double breadth;
+
+    Scanner sc = new Scanner(System.in);
+    public Shape() {
+
+    }
+
+    public Shape(double length, double breadth) {
+
+        this.length = length;
+        this.breadth = breadth;
+    }
+    public void accept() {
+        System.out.println("Enter length of " + this.getClass().getSimpleName());
+        this.length = sc.nextDouble();
+
+        System.out.println("Enter breadth of " + this.getClass().getSimpleName());
+        this.breadth = sc.nextDouble();
+
+    }
+
+    public void display() {
+        System.out.println("Length : " + this.length );
+        System.out.println("Breadth : " + this.breadth);
+    }
+
+    public abstract int computeArea();
+
+}
+class Rectangle extends Shape{
+
+    public Rectangle() {
+        super();
+// TODO Auto-generated constructor stub
+    }
+
+    public Rectangle(double length, double breadth) {
+        super(length, breadth);
+// TODO Auto-generated constructor stub
+    }
+
+    @Override
+    public void accept() {
+// TODO Auto-generated method stub
+        super.accept();
+    }
+
+    @Override
+    public void display() {
+// TODO Auto-generated method stub
+        super.display();
+    }
+
+    @Override
+    public int computeArea() {
+        double area = length * breadth;
+        System.out.println("Area = " + area);
+        return 0;
+    }
+
+}
+class Triangle extends Shape {
+
+    public Triangle() {
+        super();
+// TODO Auto-generated constructor stub
+    }
+
+    public Triangle(double length, double breadth) {
+        super(length, breadth);
+
+    }
+
+    @Override
+    public void accept() {
+// TODO Auto-generated method stub
+        super.accept();
+    }
+
+    @Override
+    public void display() {
+// TODO Auto-generated method stub
+        super.display();
+    }
+
+    @Override
+    public int computeArea() {
+        double area = (0.5) * (length * breadth);
+        System.out.println("Area of Traingle : " + area);
+        return 0;
+    }
+
+}
+class mai {
+
+    public static void main(String[] args) {
+        Rectangle r = new Rectangle();
+        r.accept();
+        r.computeArea();
+    }
+}
