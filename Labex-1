@@ -1,0 +1,41 @@
+import java.util.Scanner;
+public class Complex_no {
+    int real1,img1,real2,img2;
+    void complex()
+    {
+        System.out.println("Program to add two complex numbers");
+    }
+    int complex(int r1,int r2,int i1,int i2)  {
+        this.real1=r1;
+        this.real2=r2;
+        this.img1=i1;
+        this.img2=i2;
+        return 0;
+
+    }
+    void accept() {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter real part 1:");
+        this.real1=sc.nextInt();
+        System.out.println("Enter imaginary part 1:");
+        this.img1=sc.nextInt();
+        System.out.println("Enter real part 2:");
+        this.real2=sc.nextInt();
+        System.out.println("Enter imaginary part 2:");
+        this.img2=sc.nextInt();
+    }
+    void display() {
+        int sum_r= this.real1 + this.real2;
+
+        System.out.println("Sum of two complex number is:"+(sum_r)+ "+"+(this.img1 + this.img2)+"i");
+    }
+    public static void main(String[] args) {
+
+        Complex_no c=new Complex_no();
+//complex c=new complex(r1,r2,i1,i2);
+
+        c.accept();
+        c.display();
+    }
+
+}
