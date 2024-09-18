@@ -1,0 +1,31 @@
+import java.util.*;
+
+class Exception
+{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a[]=new int[2];
+        try
+        {
+            System.out.println("Enter 1st Number: ");
+            a[0]=sc.nextInt();
+            System.out.println("Enter 2nd Number: ");
+            a[1]=sc.nextInt();
+
+            int r=a[0]/a[1];
+            System.out.println("Result= "+r);
+        }
+        catch(ArithmeticException e)
+        {
+            System.out.println("ArithmeticException: Divisible by 0 is not allowed");
+        }
+        catch(ArrayIndexOutOfBoundsException e)
+        {
+            System.out.println("ArrayIndexOutOfBoundsException: Invalid Array index");
+        }
+        catch(NumberFormatException e)
+        {
+            System.out.println("Number FormatException: Enter valid Integer");
+        }
+    }
+}
