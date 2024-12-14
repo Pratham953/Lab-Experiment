@@ -1,0 +1,256 @@
+package pract9;
+
+import java.io.*;
+
+import java.util.*;
+
+
+
+class Bank{
+
+	String name;
+
+	String date;
+
+	String nationality;
+
+	double verifNum;
+
+	int age;
+
+	String acctype;
+
+	double amount;
+
+	double accnum;
+
+	
+
+	Scanner sc = new Scanner (System.in);
+
+	
+
+	void createacc() {
+
+		
+
+		System.out.println("MAXIMUM AGE REQUIRED TO CREATE AN ACCOUNT IS 18");
+
+		System.out.println("MAXIMUM AMOUNT REQUIRED TO CREATE AN ACCOUNT IS 5000");
+
+		System.out.println("Enter your name:");
+
+		name=sc.nextLine();
+
+		try {
+
+		System.out.println("Enter your age:");
+
+		age=sc.nextInt();
+
+		if(age<18) {
+
+			throw new Exception ("You are not elegible for creating an account");
+
+			}
+
+		}
+
+		catch(Exception e) {
+
+			System.out.println(e);
+
+		}
+
+		sc.nextLine();
+
+		System.out.println("Enter date: ");
+
+		date = sc.nextLine(); 
+
+		System.out.println("Enter nationality: ");
+
+		nationality = sc.nextLine(); 
+
+		System.out.println("Enter Aadhar/PAN/verification number: ");
+
+		verifNum = sc.nextDouble(); 
+
+		System.out.println("Enter Account Number: ");
+
+		accnum = sc.nextDouble();
+
+	    try {
+
+		System.out.println("Enter amount to be deposited:");
+
+		amount=sc.nextDouble();
+
+		if(amount<5000) {
+
+			throw new Exception ("Account cannot be created as amount less than 5000");
+
+		    }
+
+	    }
+
+	    catch(Exception a) {
+
+	    	System.out.println(a);
+
+	    }
+
+	    System.out.println("ACCOUNT CREATED SUCCESSFULLY ");
+
+    }
+
+	
+
+	public void depositMoney() {
+
+		double depAmt = 0;
+
+		System.out.println("Enter amount that you want to deposit: ");
+
+		depAmt = sc.nextDouble();
+
+		amount = amount + depAmt;
+
+		System.out.println("Your new balance is: " + amount);
+
+	}
+
+	
+
+	public void withdrawMoney() {
+
+		double witAmt = 0;
+
+		do {
+
+			System.out.println("Enter amount that you want to withdraw: ");
+
+			witAmt = sc.nextDouble();
+
+			
+
+			if (witAmt > amount) {
+
+				System.out.println("Account balance is less! Cannot withdraw...transaction failed!");
+
+			}
+
+		} while (witAmt > amount);
+
+		amount = amount - witAmt;
+
+		System.out.println("Your current balance is: " + amount);
+
+	}
+
+	
+
+	public void checkBal() {
+
+		System.out.println("Your current balance is: " + amount);
+
+	}
+
+
+
+	public void displayAcc() {
+
+		System.out.println("Displaying account details: ");
+
+		System.out.println("Name: " + name);
+
+		System.out.println("Account Number: " + accnum);
+
+		System.out.println("Current balance: " + amount);
+
+	}
+
+}
+
+
+
+public class Bankingsystem {
+
+
+
+	public static void main(String[] args) {
+
+		Scanner s = new Scanner(System.in);
+
+		Bank obj = new Bank();
+
+		int choice = 0;
+
+		System.out.println("WELCOME TO POONA BANK!");
+
+		do {
+
+			System.out.println("How can we help you today?");
+
+			System.out.println("1: Create account ");
+
+			System.out.println("2: Deposit money ");
+
+			System.out.println("3: Withdraw money ");
+
+			System.out.println("4: Check balance ");
+
+			System.out.println("5: Display account information ");
+
+			System.out.println("6: Exit");
+
+			choice = s.nextInt();
+
+			switch (choice) {
+
+			case 1:
+
+				obj.createacc();
+
+				break;
+
+			case 2:
+
+				obj.depositMoney();
+
+				break;
+
+			case 3:
+
+				obj.withdrawMoney();
+
+				break;
+
+			case 4:
+
+				obj.checkBal();
+
+				break;
+
+			case 5:
+
+				obj.displayAcc();
+
+				break;
+
+			default:
+
+				if (choice != 6) {
+
+					System.out.println("Invalid Input!");
+
+				}
+
+			}
+
+		} while (choice != 6);	
+
+	}
+
+}
+
